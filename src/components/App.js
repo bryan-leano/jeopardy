@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setCategories } from '../actions';
 
 class App extends React.Component {
@@ -17,6 +18,15 @@ class App extends React.Component {
     return (
       <div>
         <h2>Jeopardy!</h2>
+        {
+          this.props.categories.map(category => {
+            return (
+              <div key={category.id}>
+                <Link to='category'><h4>{category.title}</h4></Link>
+              </div>
+            )
+          })
+        }
       </div>
     )
   }
