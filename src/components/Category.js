@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Category extends React.Component {
   render() {
+    console.log('this.props category', this.props)
+
     return (
       <div>
         <Link className='link-home' to='/'><h4>Home</h4></Link>
@@ -12,4 +15,8 @@ class Category extends React.Component {
   }
 }
 
-export default Category;
+function mapStateToProps(state) {
+  return { category: state.category }
+}
+
+export default connect(mapStateToProps, null)(Category);
